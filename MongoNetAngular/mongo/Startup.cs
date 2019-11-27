@@ -4,6 +4,10 @@ using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Options;
+
+using mongo.Models;
+using mongo.Services;
 
 namespace mongo
 {
@@ -19,6 +23,49 @@ namespace mongo
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+                services.AddCors(options =>
+                {
+                    options.AddDefaultPolicy(
+                        builder =>
+                        {
+
+                            builder.WithOrigins("http://localhost",
+                                                "https://localhost");
+                        });
+
+                    options.AddPolicy("UsersPolicy",
+                        builder =>
+                        {
+                            builder.WithOrigins("http://localhost")
+                                                .AllowAnyHeader()
+                                                .AllowAnyMethod();
+                        });
+
+                    options.AddPolicy("ProductsPolicy",
+                        builder =>
+                        {
+                            builder.WithOrigins("http://localhost")
+                                                .AllowAnyHeader()
+                                                .AllowAnyMethod();
+                        });
+                });
+            });
+
+            // requires using Microsoft.Extensions.Options
+            services.Configure<ProjetDatabaseSettings>(
+                Configuration.GetSection(nameof(ProjetDatabaseSettings)));
+
+            services.AddSingleton<IProjetDatabaseSettings>(sp =>
+                sp.GetRequiredService<IOptions<ProjetDatabaseSettings>>().Value);
+
+            services.AddSingleton<UsersService>();
+            services.AddSingleton<ProductsService>();
+
+            services.AddControllers()
+                .AddNewtonsoftJson(options => options.UseMemberCasing());
+
             services.AddControllersWithViews();
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
@@ -46,6 +93,8 @@ namespace mongo
             }
 
             app.UseRouting();
+
+            app.UseCors();
 
             app.UseEndpoints(endpoints =>
             {
