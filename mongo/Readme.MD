@@ -10,7 +10,7 @@ pour utiliser le 3/, deposer les données dans le repertoire data de mongo (c:\d
 
 Sinon penser à indiquer le repertoire, ex: --file c:\mon_repertoire\projet.basket.json
 
-2/ importer les données
+3/ importer les données
 
 Revenir sous powershell et executer:
 
