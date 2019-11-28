@@ -321,3 +321,10 @@ mongoexport -d projet -c order -o projet.order.json
 mongoexport -d projet -c products -o projet.products.json
 mongoexport -d projet -c users -o projet.users.json
 
+// IMPORT
+mongoimport -d projet -c basket --file projet.basket.json
+mongoimport -d projet -c claim --file projet.claim.json
+mongoimport -d projet -c comment --file projet.comment.json
+mongoimport -d projet -c order --file projet.order.json
+mongoimport -d projet -c products --file projet.products.json
+mongoimport -d projet -c users --file projet.users.json
