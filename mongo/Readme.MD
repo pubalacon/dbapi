@@ -1,14 +1,17 @@
 1/ creer la base projet
 sous powershell lancer le shell mongo:
 c:\data\db>mongo
-...
+
 > use projet;
 
 2/ copier le jeu de données
+
 pour utiliser le 3/, deposer les données dans le repertoire data de mongo (c:\data\db)
+
 Sinon penser à indiquer le repertoire, ex: --file c:\mon_repertoire\projet.basket.json
 
 2/ importer les données
+
 Revenir sous powershell et executer:
 
 // IMPORT
