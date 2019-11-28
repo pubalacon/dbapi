@@ -1,0 +1,2 @@
+{"_id":{"$oid":"5ddbe3394798130fa57ee688"},"client":{"$oid":"5ddbe12a4798130fa57ee687"},"vendor":{"$oid":"5ddbd9b74798130fa57ee66c"},"articleID":{"$oid":"5ddbdd334798130fa57ee674"},"quantity":2.0,"completed":true}
+{"_id":{"$oid":"5ddbe3394798130fa57ee689"},"clientID":{"$oid":"5ddbddd84798130fa57ee67b"},"vendor":{"$oid":"5ddbd9b74798130fa57ee66c"},"articleID":{"$oid":"5ddbdaf84798130fa57ee66d"},"quantity":1.0,"completed":false}

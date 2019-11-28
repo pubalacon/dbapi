@@ -1,0 +1,323 @@
+// repertoire datas de Mongo
+cd c:\data\db
+// shell
+c:\data\db>mongo
+// db existantes
+show dbs
+// use/create new db
+use projet
+// Liste collections
+show collections
+// cree une nouvelle collection
+db.createCollection('users');
+// ou aussi directement par un insert
+db.users.insert({name: "admin", password: "admin"});
+// voir le resultat
+db.users.find().pretty();
+{
+        "_id" : ObjectId("5ddbd41c4798130fa57ee66b"),
+        "name" : "admin",
+        "password" : "admin"
+}
+// ajout d'un champ (ou update s'il existe)
+db.users.update({name: "admin"}, { $set: {level: "admin", mail: "admin@projet", confirmed:true}});
+// visu resultat
+db.users.find().pretty();
+{
+        "_id" : ObjectId("5ddbd41c4798130fa57ee66b"),
+        "name" : "admin",
+        "password" : "admin",
+        "level" : "admin",
+        "confirmed" : true,
+        "mail" : "admin@admin"
+}
+
+// vendeur
+db.users.insert({name: "vendor1", password: "vendor1", mail: "vendor1@projet", level: "vendor", confirmed: true});
+db.users.insert({name: "vendor2", password: "vendor2", mail: "vendor2@projet", level: "vendor", confirmed: true});
+
+// visu resultat
+db.users.find({level:"vendor"}).pretty();
+{
+        "_id" : ObjectId("5ddbd9b74798130fa57ee66c"),
+        "name" : "vendor1",
+        "password" : "vendor1",
+        "mail" : "vendor1@projet",
+        "level" : "vendor",
+        "confirmed" : true
+}
+{
+        "_id" : ObjectId("5ddbdc064798130fa57ee670"),
+        "name" : "vendor2",
+        "password" : "vendor2",
+        "mail" : "vendor2@projet",
+        "level" : "vendor",
+        "confirmed" : true
+}
+
+// products
+db.products.insert( {name : "p1", description : "produit 1", price : 10.10, active : true, stock : 100, vendor: ObjectId("5ddbd9b74798130fa57ee66c")});
+db.products.insert( {name : "p2", description : "produit 2", price : 20.20, active : true, stock : 100, vendor: ObjectId("5ddbd9b74798130fa57ee66c")});
+db.products.insert( {name : "p3", description : "produit 3", price : 15.15, active : true, stock : 100, vendor: ObjectId("5ddbd9b74798130fa57ee66c")});
+db.products.insert( {name : "p4", description : "produit 4", price : 10.10, active : true, stock : 100, vendor: ObjectId("5ddbd9b74798130fa57ee66c")});
+db.products.insert( {name : "p5", description : "produit 5", price : 20.20, active : true, stock : 100, vendor: ObjectId("5ddbd9b74798130fa57ee66c")});
+db.products.insert( {name : "p6", description : "produit 6", price : 15.15, active : true, stock : 100, vendor: ObjectId("5ddbd9b74798130fa57ee66c")});
+db.products.insert( {name : "p7", description : "produit 7", price : 10.10, active : true, stock : 100, vendor: ObjectId("5ddbd9b74798130fa57ee66c")});
+db.products.insert( {name : "p8", description : "produit 8", price : 20.20, active : true, stock : 100, vendor: ObjectId("5ddbd9b74798130fa57ee66c")});
+db.products.insert( {name : "p9", description : "produit 9", price : 15.15, active : true, stock : 100, vendor: ObjectId("5ddbd9b74798130fa57ee66c")});
+
+db.products.insert( {name : "p10", description : "produit 10", price : 1.1, active : true, stock : 100, vendor: ObjectId("5ddbdc064798130fa57ee670")});
+db.products.insert( {name : "p11", description : "produit 11", price : 2.2, active : true, stock : 100, vendor: ObjectId("5ddbdc064798130fa57ee670")});
+db.products.insert( {name : "p12", description : "produit 12", price : 3.3, active : true, stock : 100, vendor: ObjectId("5ddbdc064798130fa57ee670")});
+
+// visu resultat
+{
+        "_id" : ObjectId("5ddbdaf84798130fa57ee66d"),
+        "name" : "p1",
+        "description" : "produit 1",
+        "price" : 10.1,
+        "active" : true,
+        "stock" : 100,
+        "vendor" : ObjectId("5ddbd9b74798130fa57ee66c")
+}
+{
+        "_id" : ObjectId("5ddbdb4c4798130fa57ee66e"),
+        "name" : "p2",
+        "description" : "produit 2",
+        "price" : 20.2,
+        "active" : true,
+        "stock" : 100,
+        "vendor" : ObjectId("5ddbd9b74798130fa57ee66c")
+}
+{
+        "_id" : ObjectId("5ddbdb4e4798130fa57ee66f"),
+        "name" : "p3",
+        "description" : "produit 3",
+        "price" : 15.15,
+        "active" : true,
+        "stock" : 100,
+        "vendor" : ObjectId("5ddbd9b74798130fa57ee66c")
+}
+{
+        "_id" : ObjectId("5ddbdd294798130fa57ee671"),
+        "name" : "p10",
+        "description" : "produit 10",
+        "price" : 1.1,
+        "active" : true,
+        "stock" : 100,
+        "vendor" : ObjectId("5ddbdc064798130fa57ee670")
+}
+{
+        "_id" : ObjectId("5ddbdd294798130fa57ee672"),
+        "name" : "p11",
+        "description" : "produit 11",
+        "price" : 2.2,
+        "active" : true,
+        "stock" : 100,
+        "vendor" : ObjectId("5ddbdc064798130fa57ee670")
+}
+{
+        "_id" : ObjectId("5ddbdd2a4798130fa57ee673"),
+        "name" : "p12",
+        "description" : "produit 12",
+        "price" : 3.3,
+        "active" : true,
+        "stock" : 100,
+        "vendor" : ObjectId("5ddbdc064798130fa57ee670")
+}
+{
+        "_id" : ObjectId("5ddbdd334798130fa57ee674"),
+        "name" : "p4",
+        "description" : "produit 4",
+        "price" : 10.1,
+        "active" : true,
+        "stock" : 100,
+        "vendor" : ObjectId("5ddbd9b74798130fa57ee66c")
+}
+{
+        "_id" : ObjectId("5ddbdd334798130fa57ee675"),
+        "name" : "p5",
+        "description" : "produit 5",
+        "price" : 20.2,
+        "active" : true,
+        "stock" : 100,
+        "vendor" : ObjectId("5ddbd9b74798130fa57ee66c")
+}
+{
+        "_id" : ObjectId("5ddbdd334798130fa57ee676"),
+        "name" : "p6",
+        "description" : "produit 6",
+        "price" : 15.15,
+        "active" : true,
+        "stock" : 100,
+        "vendor" : ObjectId("5ddbd9b74798130fa57ee66c")
+}
+{
+        "_id" : ObjectId("5ddbdd334798130fa57ee677"),
+        "name" : "p7",
+        "description" : "produit 7",
+        "price" : 10.1,
+        "active" : true,
+        "stock" : 100,
+        "vendor" : ObjectId("5ddbd9b74798130fa57ee66c")
+}
+{
+        "_id" : ObjectId("5ddbdd334798130fa57ee678"),
+        "name" : "p8",
+        "description" : "produit 8",
+        "price" : 20.2,
+        "active" : true,
+        "stock" : 100,
+        "vendor" : ObjectId("5ddbd9b74798130fa57ee66c")
+}
+{
+        "_id" : ObjectId("5ddbdd344798130fa57ee679"),
+        "name" : "p9",
+        "description" : "produit 9",
+        "price" : 15.15,
+        "active" : true,
+        "stock" : 100,
+        "vendor" : ObjectId("5ddbd9b74798130fa57ee66c")
+}
+
+// modif du field "vendor" en "vendorID"
+db.products.update({}, {$rename: {"vendor":"vendorID"}},false,true);
+
+// client
+db.users.insert({name: "client1", password: "client1", mail: "client1@projet", level: "client", confirmed: true});
+db.users.insert({name: "client2", password: "client2", mail: "client2@projet", level: "client", confirmed: true});
+db.users.insert({name: "client3", password: "client3", mail: "client3@projet", level: "client", confirmed: false});
+
+// visu resultat
+db.users.find({level:"client"}).pretty();
+{
+        "_id" : ObjectId("5ddbddd64798130fa57ee67a"),
+        "name" : "client1",
+        "password" : "client1",
+        "mail" : "client1@projet",
+        "level" : "client",
+        "confirmed" : true
+}
+{
+        "_id" : ObjectId("5ddbddd84798130fa57ee67b"),
+        "name" : "client2",
+        "password" : "client2",
+        "mail" : "client2@projet",
+        "level" : "client",
+        "confirmed" : true
+}
+{
+        "_id" : ObjectId("5ddbde384798130fa57ee67c"),
+        "name" : "client3",
+        "password" : "client3",
+        "mail" : "client3@projet",
+        "level" : "client",
+        "confirmed" : false
+}
+
+db.basket.insert({ clientID: ObjectId("5ddbddd64798130fa57ee67a"), articles: [ {articleID: ObjectId("5ddbdb4c4798130fa57ee66e"), qte: 2}, {articleID: ObjectId("5ddbdd334798130fa57ee676"), qte: 1}]});
+
+// visu resultat
+db.basket.find().pretty();
+{
+        "_id" : ObjectId("5ddbded64798130fa57ee67d"),
+        "clientID" : ObjectId("5ddbddd64798130fa57ee67a"),
+        "articles" : [
+                {
+                        "articleID" : ObjectId("5ddbdb4c4798130fa57ee66e"),
+                        "qte" : 2
+                },
+                {
+                        "articleID" : ObjectId("5ddbdd334798130fa57ee676"),
+                        "qte" : 1
+                }
+        ]
+}
+
+// reclamations
+ db.claim.insert( [{text:"reclamation 1 de client1", clientID: ObjectId("5ddbddd64798130fa57ee67a")}, {text:"reclamation 1 de client3", clientID:ObjectId("5ddbde384798130fa57ee67c")}]);
+
+// visu resultat
+> db.claim.find().pretty();
+{
+        "_id" : ObjectId("5ddbe03f4798130fa57ee67f"),
+        "text" : "reclamation 1 de client1",
+        "clientID" : ObjectId("5ddbddd64798130fa57ee67a")
+}
+{
+        "_id" : ObjectId("5ddbe03f4798130fa57ee680"),
+        "text" : "reclamation 1 de client3",
+        "clientID" : ObjectId("5ddbde384798130fa57ee67c")
+}
+
+// commentaires
+db.comment.insert([{text:"commentaire 1 de client2", clientID: ObjectId("5ddbddd84798130fa57ee67b")}, {text:"commentaire 1 de client3", clientID:ObjectId("5ddbde384798130fa57ee67c")}, {text:"commentaire 2 de client3", clientID:ObjectId("5ddbde384798130fa57ee67c")}, {text:"commentaire 1 de client2", clientID:ObjectId("5ddbddd84798130fa57ee67b")}, {text:"commentaire 2 de client2", clientID: ObjectId("5ddbddd84798130fa57ee67b")},{text:"commentaire 3 de client2", clientID: ObjectId("5ddbddd84798130fa57ee67b")},{text:"commentaire 1 de client1", clientID: ObjectId("5ddbddd64798130fa57ee67a")}]);
+
+// visu resultat
+db.comment.find().pretty()
+{
+        "_id" : ObjectId("5ddbe12a4798130fa57ee681"),
+        "text" : "commentaire 1 de client2",
+        "clientID" : ObjectId("5ddbddd84798130fa57ee67b")
+}
+{
+        "_id" : ObjectId("5ddbe12a4798130fa57ee682"),
+        "text" : "commentaire 1 de client3",
+        "clientID" : ObjectId("5ddbde384798130fa57ee67c")
+}
+{
+        "_id" : ObjectId("5ddbe12a4798130fa57ee683"),
+        "text" : "commentaire 2 de client3",
+        "clientID" : ObjectId("5ddbde384798130fa57ee67c")
+}
+{
+        "_id" : ObjectId("5ddbe12a4798130fa57ee684"),
+        "text" : "commentaire 1 de client2",
+        "clientID" : ObjectId("5ddbddd84798130fa57ee67b")
+}
+{
+        "_id" : ObjectId("5ddbe12a4798130fa57ee685"),
+        "text" : "commentaire 2 de client2",
+        "clientID" : ObjectId("5ddbddd84798130fa57ee67b")
+}
+{
+        "_id" : ObjectId("5ddbe12a4798130fa57ee686"),
+        "text" : "commentaire 3 de client2",
+        "clientID" : ObjectId("5ddbddd84798130fa57ee67b")
+}
+{
+        "_id" : ObjectId("5ddbe12a4798130fa57ee687"),
+        "text" : "commentaire 1 de client1",
+        "clientID" : ObjectId("5ddbddd64798130fa57ee67a")
+}
+
+// order
+db.order.insert([{client : ObjectId("5ddbe12a4798130fa57ee687"), vendor : ObjectId("5ddbd9b74798130fa57ee66c"), articleID: ObjectId("5ddbdd334798130fa57ee674"), quantity : 2, completed : true }, { clientID:ObjectId("5ddbddd84798130fa57ee67b"), vendor: ObjectId("5ddbd9b74798130fa57ee66c"), articleID: ObjectId("5ddbdaf84798130fa57ee66d"), quantity:1, completed: false} ]);
+
+// visu resultat
+db.order.find().pretty()
+{
+        "_id" : ObjectId("5ddbe3394798130fa57ee688"),
+        "client" : ObjectId("5ddbe12a4798130fa57ee687"),
+        "vendor" : ObjectId("5ddbd9b74798130fa57ee66c"),
+        "articleID" : ObjectId("5ddbdd334798130fa57ee674"),
+        "quantity" : 2,
+        "completed" : true
+}
+{
+        "_id" : ObjectId("5ddbe3394798130fa57ee689"),
+        "clientID" : ObjectId("5ddbddd84798130fa57ee67b"),
+        "vendor" : ObjectId("5ddbd9b74798130fa57ee66c"),
+        "articleID" : ObjectId("5ddbdaf84798130fa57ee66d"),
+        "quantity" : 1,
+        "completed" : false
+}
+
+// EXPORT
+mongoexport -d projet -c basket -o projet.basket.json
+mongoexport -d projet -c claim -o projet.claim.json
+mongoexport -d projet -c comment -o projet.comment.json
+mongoexport -d projet -c order -o projet.order.json
+mongoexport -d projet -c products -o projet.products.json
+mongoexport -d projet -c users -o projet.users.json
+

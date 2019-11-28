@@ -1,0 +1,8 @@
+{"_id":{"$oid":"5ddbd41c4798130fa57ee66b"},"name":"admin","password":"admin","level":"admin","confirmed":true,"mail":"admin@projet"}
+{"_id":{"$oid":"5ddbd9b74798130fa57ee66c"},"name":"vendor1","password":"vendor1","mail":"vendor1@projet","level":"vendor","confirmed":true}
+{"_id":{"$oid":"5ddbdc064798130fa57ee670"},"name":"vendor2","password":"vendor2","mail":"vendor2@projet","level":"vendor","confirmed":true}
+{"_id":{"$oid":"5ddbddd64798130fa57ee67a"},"name":"client1","password":"client1","mail":"client1@projet","level":"client","confirmed":true}
+{"_id":{"$oid":"5ddbddd84798130fa57ee67b"},"name":"client2","password":"client2","mail":"client2@projet","level":"client","confirmed":true}
+{"_id":{"$oid":"5ddbde384798130fa57ee67c"},"name":"client3","password":"client3","mail":"client3@projet","level":"client","confirmed":false}
+{"_id":{"$oid":"5ddd048a81f38c290c00a973"},"name":"client4","password":"client4","mail":"client4@projet","level":"client","confirmed":true}
+{"_id":{"$oid":"5ddd3fceca8a1ad0745f85a7"},"name":"vendor3","password":"vendor3","mail":"vendor3@projet","level":"vendor","confirmed":true}

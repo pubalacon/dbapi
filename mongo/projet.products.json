@@ -1,0 +1,12 @@
+{"_id":{"$oid":"5ddbdaf84798130fa57ee66d"},"name":"p1","description":"produit 1","price":10.1,"active":true,"stock":100.0,"vendorID":{"$oid":"5ddbd9b74798130fa57ee66c"}}
+{"_id":{"$oid":"5ddbdb4c4798130fa57ee66e"},"name":"p2","description":"produit 2","price":20.2,"active":true,"stock":100.0,"vendorID":{"$oid":"5ddbd9b74798130fa57ee66c"}}
+{"_id":{"$oid":"5ddbdb4e4798130fa57ee66f"},"name":"p3","description":"produit 3","price":15.15,"active":true,"stock":100.0,"vendorID":{"$oid":"5ddbd9b74798130fa57ee66c"}}
+{"_id":{"$oid":"5ddbdd294798130fa57ee671"},"name":"p10","description":"produit 10","price":1.1,"active":true,"stock":100.0,"vendorID":{"$oid":"5ddbdc064798130fa57ee670"}}
+{"_id":{"$oid":"5ddbdd294798130fa57ee672"},"name":"p11","description":"produit 11","price":2.2,"active":true,"stock":100.0,"vendorID":{"$oid":"5ddbdc064798130fa57ee670"}}
+{"_id":{"$oid":"5ddbdd2a4798130fa57ee673"},"name":"p12","description":"produit 12","price":3.3,"active":true,"stock":100.0,"vendorID":{"$oid":"5ddbdc064798130fa57ee670"}}
+{"_id":{"$oid":"5ddbdd334798130fa57ee674"},"name":"p4","description":"produit 4","price":10.1,"active":true,"stock":100.0,"vendorID":{"$oid":"5ddbd9b74798130fa57ee66c"}}
+{"_id":{"$oid":"5ddbdd334798130fa57ee675"},"name":"p5","description":"produit 5","price":20.2,"active":true,"stock":100.0,"vendorID":{"$oid":"5ddbd9b74798130fa57ee66c"}}
+{"_id":{"$oid":"5ddbdd334798130fa57ee676"},"name":"p6","description":"produit 6","price":15.15,"active":true,"stock":100.0,"vendorID":{"$oid":"5ddbd9b74798130fa57ee66c"}}
+{"_id":{"$oid":"5ddbdd334798130fa57ee677"},"name":"p7","description":"produit 7","price":10.1,"active":true,"stock":100.0,"vendorID":{"$oid":"5ddbd9b74798130fa57ee66c"}}
+{"_id":{"$oid":"5ddbdd334798130fa57ee678"},"name":"p8","description":"produit 8","price":20.2,"active":true,"stock":100.0,"vendorID":{"$oid":"5ddbd9b74798130fa57ee66c"}}
+{"_id":{"$oid":"5ddbdd344798130fa57ee679"},"name":"p9","description":"produit 9","price":15.15,"active":true,"stock":100.0,"vendorID":{"$oid":"5ddbd9b74798130fa57ee66c"}}

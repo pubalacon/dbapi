@@ -1,0 +1,21 @@
+creer un document contenant un tableau de strings contenant ce que vous voulez;
+db.tableau.insert({"id":1, tableau: ["hey"]})
+y ajouter, en une commande "ski" et "hockey"
+db.tableau.update({id: 1}, {$push: {tableau: {$each: ["ski", "hockey"]}} })
+couper le tableau au 3 eme element
+faire un find qui retourne tous les documents dont le dit tableau contient "avion" ou "ski"
+utiliser find({$or[{tableau: "avion"}, {tableau: "ski"}}]})
+ecrire la commande qui applique une fonction de votre choix a chaque document retourne par find()
+db.collection.find({}).forEach(function(doc) {print(doc.name)})
+quels arguments prend la fonction update ?
+premier argument: un filtre de recherche
+deuxieme: definition de la modif
+pour tous les documents ou le champ age vaut plus que 18 creer le champ "majeur" et attribuez lui la valeur True.
+update({age: {$gte:18}}, {$set: {majeur: true}})
+pour tous les documents ou le champ "nom" existe affichez le.
+find({nom{$exists: true}})
+lister quelques operateurs pouvant etre utilises dans le second argument de la methode update. 
+$set
+$inc
+$pull
+$push

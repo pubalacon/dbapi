@@ -1,0 +1,7 @@
+{"_id":{"$oid":"5ddbe12a4798130fa57ee681"},"text":"commentaire 1 de client2","clientID":{"$oid":"5ddbddd84798130fa57ee67b"}}
+{"_id":{"$oid":"5ddbe12a4798130fa57ee682"},"text":"commentaire 1 de client3","clientID":{"$oid":"5ddbde384798130fa57ee67c"}}
+{"_id":{"$oid":"5ddbe12a4798130fa57ee683"},"text":"commentaire 2 de client3","clientID":{"$oid":"5ddbde384798130fa57ee67c"}}
+{"_id":{"$oid":"5ddbe12a4798130fa57ee684"},"text":"commentaire 1 de client2","clientID":{"$oid":"5ddbddd84798130fa57ee67b"}}
+{"_id":{"$oid":"5ddbe12a4798130fa57ee685"},"text":"commentaire 2 de client2","clientID":{"$oid":"5ddbddd84798130fa57ee67b"}}
+{"_id":{"$oid":"5ddbe12a4798130fa57ee686"},"text":"commentaire 3 de client2","clientID":{"$oid":"5ddbddd84798130fa57ee67b"}}
+{"_id":{"$oid":"5ddbe12a4798130fa57ee687"},"text":"commentaire 1 de client1","clientID":{"$oid":"5ddbddd64798130fa57ee67a"}}
