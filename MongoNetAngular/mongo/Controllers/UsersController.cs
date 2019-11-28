@@ -29,6 +29,7 @@ namespace mongo.Controllers
         public ActionResult<List<Users>> Get() =>
             _userService.Get();
 
+        [Route("GetUserById")]
         [HttpGet("{id:length(24)}", Name = "GetUser")]
         public ActionResult<Users> Get(string id)
         {
@@ -42,6 +43,7 @@ namespace mongo.Controllers
             return user;
         }
 
+        [Route("Add")]
         [HttpPost]
         public ActionResult<Users> Create(Users user)
         {
@@ -65,6 +67,7 @@ namespace mongo.Controllers
             return NoContent();
         }
 
+        [Route("Delete")]
         [HttpDelete("{id:length(24)}")]
         public IActionResult Delete(string id)
         {

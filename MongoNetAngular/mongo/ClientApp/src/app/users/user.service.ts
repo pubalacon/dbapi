@@ -31,7 +31,10 @@ export class UserService {
 
     InsertUser(user: User) {
         const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
-        return this.http.post<User[]>(this.Url + '/insert/', user, httpOptions);
+        // check and transform datas
+        if (user.Confirmed == null) user.Confirmed = false;
+
+        return this.http.post<User[]>(this.Url + '/Add/', user, httpOptions);
     }
 
     GetUser(): Observable<User[]> {

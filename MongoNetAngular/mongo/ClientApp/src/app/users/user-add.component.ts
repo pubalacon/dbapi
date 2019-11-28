@@ -36,7 +36,7 @@ export class UserAddComponent implements OnInit {
                     this.message = 'Update Successfully';
                 }
                 this.dataSaved = true;
-                this.router.navigate(['/user']);
+                this.router.navigate(['/user/all']);
             });
     }
 

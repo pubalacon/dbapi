@@ -30,7 +30,7 @@ export class UserListComponent implements OnInit {
     UserEdit(id: string) {
         localStorage.removeItem('id');
         localStorage.setItem('id', id.toString());
-        this.router.navigate(['/user/add'], { queryParams: { Id: id } });
+        this.router.navigate(['/user/edit'], { queryParams: { Id: id } });
     }
 
     DeleteUser(id: string) {

@@ -19,7 +19,58 @@ export class UserEditComponent implements OnInit {
     AddUser: FormGroup;
     UserIdUpdate = '0';
 
-    ngOnInit(): void {
-        throw new Error("Method not implemented.");
+    constructor(private router: Router, private userService: UserService) { }
+
+    InsertUser(user: User) {
+        if (this.UserIdUpdate !== '0') {
+            user.Id = this.UserIdUpdate;
+        }
+
+        this.userService.InsertUser(user).subscribe(
+            () => {
+                if (this.UserIdUpdate === '0') {
+                    this.message = 'Saved Successfully';
+                } else {
+                    this.message = 'Update Successfully';
+                }
+                this.dataSaved = true;
+                this.router.navigate(['/user/all']);
+            });
+    }
+
+    userEdit(id: string) {
+        this.userService.GetUserById(id).subscribe(u => {
+            this.message = null;
+            this.dataSaved = false;
+
+            this.UserIdUpdate = id;
+            this.AddUser.controls.Name.setValue(u.Name);
+            this.AddUser.controls.Password.setValue(u.Password);
+            this.AddUser.controls.Mail.setValue(u.Mail);
+            this.AddUser.controls.Level.setValue(u.Level);
+            this.AddUser.controls.Confirmed.setValue(u.Confirmed);
+        });
+
+    }
+
+    onFormSubmit() {
+        const U = this.AddUser.value;
+        this.InsertUser(U);
+    }
+
+    ngOnInit() {
+        this.AddUser = new FormGroup({
+            Name: new FormControl(),
+            Password: new FormControl(),
+            Mail: new FormControl(),
+            Level: new FormControl(),
+            Confirmed: new FormControl(),
+        });
+
+        const Id = localStorage.getItem('id');
+
+        if (Id != null) {
+            this.userEdit(Id);
+        }
     }
 }
