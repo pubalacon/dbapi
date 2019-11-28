@@ -22,7 +22,7 @@ namespace mongo.Services
             _users.Find(user => true).ToList();
 
         public Users Get(string id) =>
-            _users.Find<Users>(x => x.Id == id).FirstOrDefault();
+            _users.Find<Users>(user => user.Id == id).FirstOrDefault();
 
         public Users Create(Users user)
         {

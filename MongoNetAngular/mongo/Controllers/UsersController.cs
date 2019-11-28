@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 using mongo.Models;
 using mongo.Services;
-
+using MongoDB.Bson;
 
 namespace mongo.Controllers
 {
@@ -29,11 +29,11 @@ namespace mongo.Controllers
         public ActionResult<List<Users>> Get() =>
             _userService.Get();
 
-        [Route("GetUserById")]
+        [Route("GetUserById/{id}")]
         [HttpGet("{id:length(24)}", Name = "GetUser")]
         public ActionResult<Users> Get(string id)
         {
-            var user = _userService.Get(id);
+           var user = _userService.Get(id);
 
             if (user == null)
             {
@@ -52,6 +52,7 @@ namespace mongo.Controllers
             return CreatedAtRoute("GetUser", new { id = user.Id.ToString() }, user);
         }
 
+        [Route("Update/{id}")]
         [HttpPut("{id:length(24)}")]
         public IActionResult Update(string id, Users userIn)
         {
@@ -67,7 +68,7 @@ namespace mongo.Controllers
             return NoContent();
         }
 
-        [Route("Delete")]
+        [Route("Delete/{id}")]
         [HttpDelete("{id:length(24)}")]
         public IActionResult Delete(string id)
         {

@@ -21,14 +21,14 @@ export class UserEditComponent implements OnInit {
 
     constructor(private router: Router, private userService: UserService) { }
 
-    InsertUser(user: User) {
-        if (this.UserIdUpdate !== '0') {
+    UpdateUser(user: User) {
+        if (this.UserIdUpdate != '0') {
             user.Id = this.UserIdUpdate;
         }
 
-        this.userService.InsertUser(user).subscribe(
+        this.userService.UpdateUser(user).subscribe(
             () => {
-                if (this.UserIdUpdate === '0') {
+                if (this.UserIdUpdate == '0') {
                     this.message = 'Saved Successfully';
                 } else {
                     this.message = 'Update Successfully';
@@ -55,7 +55,7 @@ export class UserEditComponent implements OnInit {
 
     onFormSubmit() {
         const U = this.AddUser.value;
-        this.InsertUser(U);
+        this.UpdateUser(U);
     }
 
     ngOnInit() {

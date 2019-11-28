@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { User } from './user';
 import { UserService } from './user.service';
@@ -16,21 +16,21 @@ export class UserListComponent implements OnInit {
     message: string;
     dataSaved = false;
 
-    constructor(private router: Router, private userService: UserService) { }
+    constructor(private router: Router, private route: ActivatedRoute, private userService: UserService) { }
 
+    // comment reutiliser ? (aussi present dans edit)
     getConfirmedText(confirmed: boolean) {
         return confirmed ? 'confirmed' : 'not confirmed yet';
     }
 
     LoadUser() {
         this.U = this.userService.GetUser();
-        console.log(this.U);
     }
 
     UserEdit(id: string) {
         localStorage.removeItem('id');
         localStorage.setItem('id', id.toString());
-        this.router.navigate(['/user/edit'], { queryParams: { Id: id } });
+        this.router.navigate(['/user', 'edit', id]);
     }
 
     DeleteUser(id: string) {
@@ -44,9 +44,10 @@ export class UserListComponent implements OnInit {
         }
     }
 
-    ngOnInit() {
+    ngOnInit(): void {
         localStorage.clear();
         this.LoadUser();
+        //this.userService.GetUser().subscribe(x => this.U = x);
     }
 
 }
