@@ -16,7 +16,7 @@ export class UserListComponent implements OnInit {
     message: string;
     dataSaved = false;
 
-    constructor(private router: Router, private route: ActivatedRoute, private userService: UserService) { }
+    constructor(private router: Router, private userService: UserService) { }
 
     // comment reutiliser ? (aussi present dans edit)
     getConfirmedText(confirmed: boolean) {
@@ -39,8 +39,10 @@ export class UserListComponent implements OnInit {
                 () => {
                     this.dataSaved = true;
                     this.message = 'Deleted Successfully';
+                    this.LoadUser();
                 }
             );
+            //this.router.navigate(['/user', 'all']);
         }
     }
 

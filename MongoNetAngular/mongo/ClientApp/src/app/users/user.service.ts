@@ -6,18 +6,14 @@ import { User } from './user';
 
 @Injectable()
 export class UserService {
-    Url = 'http://localhost:51336/api/users';
+
+    private Url = '';
 
     users: User[];
 
-    /*
     constructor(private http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
-        http.get<User[]>(baseUrl + 'api/users').subscribe(result => {
-            this.users = result;
-        }, error => console.error(error));
-    }
-    */
-    constructor(private http: HttpClient) {
+        this.Url = baseUrl + 'api/users';
+
         http.get<User[]>(this.Url).subscribe(result => {
             this.users = result;
         }, error => console.error(error));
@@ -47,11 +43,6 @@ export class UserService {
     UpdateUser(user: User) {
         const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
         return this.http.post<User[]>(this.Url + '/Update/' + user.Id, user, httpOptions);
-    }
-
-    // Retourne la liste des types des Pokémons
-    getConfirmLabels(): Array<string> {
-        return ['not confirmed', 'confirmed'];
     }
 
 }
