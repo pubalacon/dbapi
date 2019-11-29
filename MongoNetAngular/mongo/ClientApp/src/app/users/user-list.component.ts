@@ -16,6 +16,9 @@ export class UserListComponent implements OnInit {
     message: string;
     dataSaved = false;
 
+    // pagination
+    p: number = 1;
+
     constructor(private router: Router, private userService: UserService) { }
 
     // comment reutiliser ? (aussi present dans edit)

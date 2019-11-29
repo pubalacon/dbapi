@@ -12,7 +12,7 @@ import { User } from './user';
 @Component({
     selector: 'app-useradd',
     templateUrl: './user-editForm.html',
-    styleUrls: ['./user-add.component.css']
+    styleUrls: ['./user-editForm.css']
 })
 
 export class UserAddComponent implements OnInit {

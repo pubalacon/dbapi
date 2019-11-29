@@ -8,51 +8,39 @@
           </div>
         </div>
         <div class="card-body p-4">
-          <form [formGroup]="AddUser" (ngSubmit)="onFormSubmit(AddUser.value)">
+            <div class="col-sm-12 text-right">
+              <button type="button" class="btn btn-primary mr-1" (click)="UserEdit(U.Id)">{{ submitText}}</button>
+            </div>
+
             <div class="col-sm-12">
               <div class="card-body">
-                <!-- <div class="row"> -->
-                <div class="form-group ">
-                  <label class="col-sm-2 control-label" for="Name">Name</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" placeholder="Enter name"
-                           formControlName="Name">
-                  </div>
+                <div class="row">
+                  <div class="col-4">Name</div>
+                  <div class="col-8"> {{U.Name}} </div>
                 </div>
-                <div class="form-group ">
-                  <label class="col-sm-2 control-label" for="Password">Password</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" placeholder="Enter Password"
-                           formControlName="Password">
-                  </div>
+
+                <div class="row">
+                  <div class="col-4">Password</div>
+                  <div class="col-8"> {{U.Password}} </div>
                 </div>
-                <div class="form-group ">
-                  <label class="col-sm-2 control-label" for="Mail">Mail</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" placeholder="Enter Mail"
-                           formControlName="Mail">
-                  </div>
+
+                <div class="row">
+                  <div class="col-4">Mail</div>
+                  <div class="col-8"> {{U.Mail}} </div>
                 </div>
-                <div class="form-group ">
-                  <label class="col-sm-2 control-label" for="Level">Level</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" placeholder="Enter Level"
-                           formControlName="Level">
-                  </div>
+
+                <div class="row">
+                  <div class="col-4">Level</div>
+                  <div class="col-8"> {{U.Level}} </div>
                 </div>
-                <div class="form-group ">
-                  <label class="col-sm-2 control-label" for="Confirmed">Confirmed</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" placeholder="Enter Confirmed"
-                           formControlName="Confirmed">
-                  </div>
+
+                <div class="row">
+                  <div class="col-4">Confirmed</div>
+                  <div class="col-8"> {{getConfirmedText(U.Confirmed)}} </div>
                 </div>
+
               </div>
             </div>
-            <div class="col-6 text-right">
-              <button class="btn btn-primary px-10" type="submit">Add User</button>
-            </div>
-          </form>
         </div>
       </div>
     </div>

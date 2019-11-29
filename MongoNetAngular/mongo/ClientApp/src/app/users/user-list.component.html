@@ -28,9 +28,10 @@
     <th>Action</th>
     </thead>
     <tbody>
-      <!--<tr *ngFor="let u of U | async|filter:filter| paginate: { itemsPerPage: 5, currentPage: p } ; let i=index">-->
-      <tr *ngFor="let u of U | async; let i=index">
-        <td>{{u.Name}}</td>
+      <!--<tr *ngFor="let u of U | async |filter:filter | paginate: { itemsPerPage: 5, currentPage: p } ; let i=index">-->
+      <tr *ngFor="let u of U | async | filter:filter | paginate: { itemsPerPage: 5, currentPage: p } ; let i=index">
+      <!--<tr *ngFor="let u of U | async; let i=index">-->
+      <td><a routerLink="/user/{{u.Id}}">{{u.Name}}</a></td>
         <td>{{u.Password}}</td>
         <td>{{u.Mail}}</td>
         <td>{{u.Level}}</td>
@@ -44,9 +45,9 @@
       </tr>
     </tbody>
   </table>
-  <!--
+  
   <ul class="pagination">
     <pagination-controls (pageChange)="p = $event"></pagination-controls>
   </ul>
-  -->
+  
 </div>

@@ -10,6 +10,9 @@ import { UserAddComponent } from './user-add.component';
 import { UserEditComponent } from './user-edit.component';
 import { UserViewComponent } from './user-view.component';
 
+import { NgxPaginationModule } from 'ngx-pagination';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
 @NgModule({
     declarations: [
         UserListComponent,
@@ -22,6 +25,8 @@ import { UserViewComponent } from './user-view.component';
         UserRoutingModule,
         FormsModule,
         ReactiveFormsModule,
+        NgxPaginationModule,
+        Ng2SearchPipeModule
     ],
     providers: [
         UserService,

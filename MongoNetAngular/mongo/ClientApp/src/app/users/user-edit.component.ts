@@ -10,7 +10,7 @@ import { User } from './user';
 @Component({
     selector: 'app-useredit',
     templateUrl: './user-editForm.html',
-    styleUrls: ['./user-edit.component.css']
+    styleUrls: ['./user-editForm.css']
 })
 
 export class UserEditComponent implements OnInit {
