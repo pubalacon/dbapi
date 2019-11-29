@@ -49,7 +49,6 @@ export class UserListComponent implements OnInit {
     ngOnInit(): void {
         localStorage.clear();
         this.LoadUser();
-        //this.userService.GetUser().subscribe(x => this.U = x);
     }
 
 }

@@ -9,7 +9,7 @@ import { User } from './user';
 
 @Component({
     selector: 'app-useredit',
-    templateUrl: './user-edit.component.html',
+    templateUrl: './user-editForm.html',
     styleUrls: ['./user-edit.component.css']
 })
 
@@ -18,6 +18,7 @@ export class UserEditComponent implements OnInit {
     dataSaved = false;
     AddUser: FormGroup;
     UserIdUpdate = '0';
+    submitText = "Update User";
 
     constructor(private router: Router, private userService: UserService) { }
 
@@ -51,6 +52,14 @@ export class UserEditComponent implements OnInit {
             this.AddUser.controls.Confirmed.setValue(u.Confirmed);
         });
 
+    }
+
+    clearform() {
+        this.AddUser.controls.Name.setValue('');
+        this.AddUser.controls.Password.setValue('');
+        this.AddUser.controls.Mail.setValue('');
+        this.AddUser.controls.Level.setValue(null);
+        this.AddUser.controls.Confirmed.setValue(false);
     }
 
     onFormSubmit() {

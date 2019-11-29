@@ -11,7 +11,7 @@ import { User } from './user';
 
 @Component({
     selector: 'app-useradd',
-    templateUrl: './user-add.component.html',
+    templateUrl: './user-editForm.html',
     styleUrls: ['./user-add.component.css']
 })
 
@@ -20,6 +20,7 @@ export class UserAddComponent implements OnInit {
     dataSaved = false;
     AddUser: FormGroup;
     UserIdUpdate = '0';
+    submitText = 'Add User';
 
     constructor(private router: Router, private userService: UserService) { }
 
@@ -61,12 +62,11 @@ export class UserAddComponent implements OnInit {
     }
 
     clearform() {
-
         this.AddUser.controls.Name.setValue('');
         this.AddUser.controls.Password.setValue('');
         this.AddUser.controls.Mail.setValue('');
-        this.AddUser.controls.Level.setValue('');
-        this.AddUser.controls.Confirmed.setValue('');
+        this.AddUser.controls.Level.setValue(null);
+        this.AddUser.controls.Confirmed.setValue(false);
     }
 
     ngOnInit() {
